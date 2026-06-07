@@ -36,10 +36,10 @@ GRAPH = {
     "N_NODES": 2464,   # 44 × 56
     "EDGE_THRESHOLD": 0.001,   # import_pen_coeff must be >= this to keep edge
     "SEQ_LEN": 8,   # quarters in temporal sequence
-    "WIOD_YEARS": list(range(2000, 2017)),
+    "WIOD_YEARS": list(range(2000, 2015)),
     "COMTRADE_YEARS": [2017, 2018, 2019, 2020, 2021],
-    "WIOD_MATRIX_ROW_OFFSET": None,   # SET MANUALLY after opening WIOD Excel
-    "WIOD_MATRIX_COL_OFFSET": None,   # SET MANUALLY after opening WIOD Excel
+    "WIOD_MATRIX_ROW_OFFSET": 6,   # SET MANUALLY after opening WIOD Excel
+    "WIOD_MATRIX_COL_OFFSET": 4,   # SET MANUALLY after opening WIOD Excel
     "COUNTRY_LIST": [
         "AUS", "AUT", "BEL", "BGR", "BRA", "CAN", "CHN", "CYP", "CZE", "DEU",
         "DNK", "ESP", "EST", "FIN", "FRA", "GBR", "GRC", "HUN", "IDN", "IND",
@@ -50,8 +50,8 @@ GRAPH = {
     "SECTOR_LIST": [
         "A01", "A02", "A03", "B", "C10-C12", "C13-C15", "C16", "C17", "C18",
         "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28",
-        "C29", "C30", "C31-C32", "C33", "D35", "E36", "E37-E39", "F", "G45",
-        "G46", "G47", "H49", "H50", "H51", "H52", "H53", "I", "J58-J60", "J61",
+        "C29", "C30", "C31_C32", "C33", "D35", "E36", "E37-E39", "F", "G45",
+        "G46", "G47", "H49", "H50", "H51", "H52", "H53", "I", "J58", "J59-J60", "J61",
         "J62-J63", "K64", "K65", "K66", "L68", "M69-M70", "M71", "M72", "M73",
         "M74-M75", "N", "O84", "P85", "Q", "R-S", "T", "U"
     ]
