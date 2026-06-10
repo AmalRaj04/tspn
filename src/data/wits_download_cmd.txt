@@ -1,0 +1,88 @@
+for YEAR in 2015 2016 2017 2018 2019 2020 2021
+do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/840/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/usa_${YEAR}.json
+done
+
+
+
+
+for YEAR in 2015 2016 2017 2018 2019 2020 2021
+do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/156/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/chn_${YEAR}.json
+done
+
+
+
+for YEAR in 2017 2018 2019
+do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/124/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/can_${YEAR}.json
+done
+
+
+
+
+
+for YEAR in 2019 2020 2021
+do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/826/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/gbr_${YEAR}.json
+done
+
+
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/276/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/deu_${YEAR}.json
+done
+
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/250/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/fra_${YEAR}.json
+done
+
+
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/380/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/ita_${YEAR}.json
+done
+
+
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/724/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/esp_${YEAR}.json
+done
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/528/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/nld_${YEAR}.json
+done
+
+
+
+
+for YEAR in 2018 2019 2020 2021; do
+curl -L \
+"https://wits.worldbank.org/API/V1/SDMX/V21/datasource/TRN/reporter/056/partner/000/product/ALL/year/${YEAR}/datatype/reported?format=JSON" \
+-o data/raw/wits/json/bel_${YEAR}.json
+done
+
