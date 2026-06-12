@@ -27,7 +27,7 @@ import requests
 # ---------------------------------------------------------------------------
 # Project root & config
 # ---------------------------------------------------------------------------
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..",".."))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
@@ -52,8 +52,15 @@ MONTHLY_PERIODS = {f"M{month:02d}" for month in range(1, 13)}
 
 
 def _series_id(naics_code: str) -> str:
-    """Build BLS PCU series ID: PCU{NAICS}{NAICS}."""
-    return f"PCU{naics_code}{naics_code}"
+    """
+    Build BLS aggregate 3-digit NAICS PPI series ID.
+
+    Examples:
+        311 -> PCU311---311---
+        327 -> PCU327---327---
+        331 -> PCU331---331---
+    """
+    return f"PCU{naics_code}---{naics_code}---"
 
 
 def _output_path(naics_code: str) -> str:
@@ -108,14 +115,18 @@ def _fetch_batch_with_retries(
 
 
 def _series_id_to_naics(series_id: str) -> str | None:
-    """Map a PCU series ID back to its NAICS code."""
+    """
+    PCU311---311--- -> 311
+    """
     if not series_id.startswith("PCU"):
         return None
+
     body = series_id[3:]
-    half = len(body) // 2
-    if half == 0 or body[:half] != body[half:]:
+
+    if "---" not in body:
         return None
-    return body[:half]
+
+    return body[:3]
 
 
 def _parse_series_data(series: dict[str, Any]) -> pd.DataFrame:
