@@ -37,7 +37,7 @@ GRAPH = {
     "EDGE_THRESHOLD": 0.001,   # import_pen_coeff must be >= this to keep edge
     "SEQ_LEN": 8,   # quarters in temporal sequence
     "WIOD_YEARS": list(range(2000, 2015)),
-    "COMTRADE_YEARS": [2017, 2018, 2019, 2020, 2021],
+    "COMTRADE_YEARS": [2015, 2016, 2017, 2018, 2019, 2020, 2021],
     "WIOD_MATRIX_ROW_OFFSET": 6,   # SET MANUALLY after opening WIOD Excel
     "WIOD_MATRIX_COL_OFFSET": 4,   # SET MANUALLY after opening WIOD Excel
     "COUNTRY_LIST": [

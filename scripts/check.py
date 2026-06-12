@@ -1,12 +1,22 @@
-import numpy as np
+import pandas as pd
 
-for year in range(2000, 2015):
-    bl = np.load(
-        f"data/processed/leontief/backward_linkage_{year}.npy"
-    )
+df = pd.read_parquet(
+    "data/processed/shock_vectors/shock_eu_retaliation_2018.parquet"
+)
 
-    print(
-        year,
-        round(float(bl.max()), 2),
-        round(float(bl.mean()), 2)
-    )
+print(
+    df.groupby("sector")["delta_tariff"]
+      .first()
+      .sort_values(ascending=False)
+      .head(20)
+)
+
+csv = pd.read_csv(
+
+    "data/raw/tariff_events/eu_retaliation_2018.csv"
+
+)
+
+print(csv["delta_tariff_pct"].describe())
+
+print(csv["delta_tariff_pct"].value_counts().head(20))

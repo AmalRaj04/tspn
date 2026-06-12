@@ -1,0 +1,1953 @@
+================================================================================
+TSPN PROJECT AUDIT
+================================================================================
+
+
+================================================================================
+DIRECTORY: data/processed/edges
+================================================================================
+FILE COUNT: 52
+
+--------------------------------------------------
+FILE: edges_2000.parquet
+SIZE_MB: 2.24
+ROWS: 165019
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2000         AUS        A01  ...         0.367309      0       0
+1  2000         AUS        A01  ...         0.194058      0       1
+2  2000         AUS        A01  ...         0.104348      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2000 2000
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2001.parquet
+SIZE_MB: 2.25
+ROWS: 165209
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2001         AUS        A01  ...         0.413024      0       0
+1  2001         AUS        A01  ...         0.226305      0       1
+2  2001         AUS        A01  ...         0.125397      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2001 2001
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2002.parquet
+SIZE_MB: 2.24
+ROWS: 164812
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2002         AUS        A01  ...         0.322875      0       0
+1  2002         AUS        A01  ...         0.166714      0       1
+2  2002         AUS        A01  ...         0.087938      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2002 2002
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2003.parquet
+SIZE_MB: 2.25
+ROWS: 164855
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2003         AUS        A01  ...         0.368567      0       0
+1  2003         AUS        A01  ...         0.198687      0       1
+2  2003         AUS        A01  ...         0.105820      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2003 2003
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2004.parquet
+SIZE_MB: 2.3
+ROWS: 167499
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2004         AUS        A01  ...         0.332023      0       0
+1  2004         AUS        A01  ...         0.174529      0       1
+2  2004         AUS        A01  ...         0.092207      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2004 2004
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2005.parquet
+SIZE_MB: 2.3
+ROWS: 168026
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2005         AUS        A01  ...         0.348259      0       0
+1  2005         AUS        A01  ...         0.186549      0       1
+2  2005         AUS        A01  ...         0.099165      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2005 2005
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2006.parquet
+SIZE_MB: 2.32
+ROWS: 170080
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2006         AUS        A01  ...         0.298268      0       0
+1  2006         AUS        A01  ...         0.157125      0       1
+2  2006         AUS        A01  ...         0.081505      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2006 2006
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2007.parquet
+SIZE_MB: 2.34
+ROWS: 171024
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2007         AUS        A01  ...         0.329223      0       0
+1  2007         AUS        A01  ...         0.178301      0       1
+2  2007         AUS        A01  ...         0.093441      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2007 2007
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2008.parquet
+SIZE_MB: 2.36
+ROWS: 171591
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2008         AUS        A01  ...         0.321200      0       0
+1  2008         AUS        A01  ...         0.189063      0       1
+2  2008         AUS        A01  ...         0.101025      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2008 2008
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2009.parquet
+SIZE_MB: 2.3
+ROWS: 168629
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2009         AUS        A01  ...         0.306123      0       0
+1  2009         AUS        A01  ...         0.202922      0       1
+2  2009         AUS        A01  ...         0.107332      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2009 2009
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2010.parquet
+SIZE_MB: 2.35
+ROWS: 171826
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2010         AUS        A01  ...         0.319697      0       0
+1  2010         AUS        A01  ...         0.245407      0       1
+2  2010         AUS        A01  ...         0.127428      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2010 2010
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2011.parquet
+SIZE_MB: 2.38
+ROWS: 173689
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2011         AUS        A01  ...         0.295707      0       0
+1  2011         AUS        A01  ...         0.252937      0       1
+2  2011         AUS        A01  ...         0.124997      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2011 2011
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2012.parquet
+SIZE_MB: 2.39
+ROWS: 174730
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2012         AUS        A01  ...         0.295259      0       0
+1  2012         AUS        A01  ...         0.295477      0       1
+2  2012         AUS        A01  ...         0.136054      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2012 2012
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2013.parquet
+SIZE_MB: 2.41
+ROWS: 175558
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2013         AUS        A01  ...         0.303342      0       0
+1  2013         AUS        A01  ...         0.108176      0       1
+2  2013         AUS        A01  ...         0.170507      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2013 2013
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2014.parquet
+SIZE_MB: 2.4
+ROWS: 175276
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2014         AUS        A01  ...         0.331056      0       0
+1  2014         AUS        A01  ...         0.121556      0       1
+2  2014         AUS        A01  ...         0.189657      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2014 2014
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2015.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2015         AUS        A01  ...         0.123767      0       1
+1  2015         AUS        A01  ...         0.002955      0      21
+2  2015         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2015 2015
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2016.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2016         AUS        A01  ...         0.123767      0       1
+1  2016         AUS        A01  ...         0.002955      0      21
+2  2016         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2016 2016
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2017.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2017         AUS        A01  ...         0.123767      0       1
+1  2017         AUS        A01  ...         0.002955      0      21
+2  2017         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2017 2017
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2018.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2018         AUS        A01  ...         0.123767      0       1
+1  2018         AUS        A01  ...         0.002955      0      21
+2  2018         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2018 2018
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2019.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2019         AUS        A01  ...         0.123767      0       1
+1  2019         AUS        A01  ...         0.002955      0      21
+2  2019         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2019 2019
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2020.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2020         AUS        A01  ...         0.123767      0       1
+1  2020         AUS        A01  ...         0.002955      0      21
+2  2020         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2020 2020
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_2021.parquet
+SIZE_MB: 2.08
+ROWS: 149658
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2021         AUS        A01  ...         0.123767      0       1
+1  2021         AUS        A01  ...         0.002955      0      21
+2  2021         AUS        A01  ...         0.002437      0      24
+
+[3 rows x 9 columns]
+YEAR RANGE: 2021 2021
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2000.parquet
+SIZE_MB: 46.97
+ROWS: 5024257
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2000         AUS        A01  ...         0.367309      0       0
+1  2000         AUS        A01  ...         0.194058      0       1
+2  2000         AUS        A01  ...         0.104348      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2000 2000
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2001.parquet
+SIZE_MB: 46.96
+ROWS: 5025327
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2001         AUS        A01  ...         0.413024      0       0
+1  2001         AUS        A01  ...         0.226305      0       1
+2  2001         AUS        A01  ...         0.125397      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2001 2001
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2002.parquet
+SIZE_MB: 46.89
+ROWS: 5022029
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2002         AUS        A01  ...         0.322875      0       0
+1  2002         AUS        A01  ...         0.166714      0       1
+2  2002         AUS        A01  ...         0.087938      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2002 2002
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2003.parquet
+SIZE_MB: 46.93
+ROWS: 5031704
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2003         AUS        A01  ...         0.368567      0       0
+1  2003         AUS        A01  ...         0.198687      0       1
+2  2003         AUS        A01  ...         0.105820      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2003 2003
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2004.parquet
+SIZE_MB: 46.86
+ROWS: 5021100
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2004         AUS        A01  ...         0.332023      0       0
+1  2004         AUS        A01  ...         0.174529      0       1
+2  2004         AUS        A01  ...         0.092207      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2004 2004
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2005.parquet
+SIZE_MB: 46.95
+ROWS: 5026143
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2005         AUS        A01  ...         0.348259      0       0
+1  2005         AUS        A01  ...         0.186549      0       1
+2  2005         AUS        A01  ...         0.099165      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2005 2005
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2006.parquet
+SIZE_MB: 47.1
+ROWS: 5027284
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2006         AUS        A01  ...         0.298268      0       0
+1  2006         AUS        A01  ...         0.157125      0       1
+2  2006         AUS        A01  ...         0.081505      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2006 2006
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2007.parquet
+SIZE_MB: 47.36
+ROWS: 5039362
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2007         AUS        A01  ...         0.329223      0       0
+1  2007         AUS        A01  ...         0.178301      0       1
+2  2007         AUS        A01  ...         0.093441      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2007 2007
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2008.parquet
+SIZE_MB: 47.28
+ROWS: 5053199
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2008         AUS        A01  ...         0.321200      0       0
+1  2008         AUS        A01  ...         0.189063      0       1
+2  2008         AUS        A01  ...         0.101025      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2008 2008
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2009.parquet
+SIZE_MB: 47.2
+ROWS: 5068688
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2009         AUS        A01  ...         0.306123      0       0
+1  2009         AUS        A01  ...         0.202922      0       1
+2  2009         AUS        A01  ...         0.107332      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2009 2009
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2010.parquet
+SIZE_MB: 47.33
+ROWS: 5048495
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2010         AUS        A01  ...         0.319697      0       0
+1  2010         AUS        A01  ...         0.245407      0       1
+2  2010         AUS        A01  ...         0.127428      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2010 2010
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2011.parquet
+SIZE_MB: 46.99
+ROWS: 5049601
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2011         AUS        A01  ...         0.295707      0       0
+1  2011         AUS        A01  ...         0.252937      0       1
+2  2011         AUS        A01  ...         0.124997      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2011 2011
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2012.parquet
+SIZE_MB: 47.09
+ROWS: 5055319
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2012         AUS        A01  ...         0.295259      0       0
+1  2012         AUS        A01  ...         0.295477      0       1
+2  2012         AUS        A01  ...         0.136054      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2012 2012
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2013.parquet
+SIZE_MB: 47.0
+ROWS: 5051894
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2013         AUS        A01  ...         0.303342      0       0
+1  2013         AUS        A01  ...         0.108176      0       1
+2  2013         AUS        A01  ...         0.170507      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2013 2013
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: edges_raw_2014.parquet
+SIZE_MB: 47.15
+ROWS: 5053743
+COLS: 9
+DTYPES:
+year                   int16
+src_country         category
+src_sector          category
+tgt_country         category
+tgt_sector          category
+flow_usd             float32
+import_pen_coeff     float32
+src_id                 int16
+tgt_id                 int16
+dtype: object
+COLUMNS:
+['year', 'src_country', 'src_sector', 'tgt_country', 'tgt_sector', 'flow_usd', 'import_pen_coeff', 'src_id', 'tgt_id']
+HEAD:
+   year src_country src_sector  ... import_pen_coeff src_id  tgt_id
+0  2014         AUS        A01  ...         0.331056      0       0
+1  2014         AUS        A01  ...         0.121556      0       1
+2  2014         AUS        A01  ...         0.189657      0       2
+
+[3 rows x 9 columns]
+YEAR RANGE: 2014 2014
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 44
+
+--------------------------------------------------
+FILE: socioeconomic_2000.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2000  49709.210938  21627.107422
+1     AUS    A02  2000   2586.231934    819.309998
+2     AUS    A03  2000   2597.052979   1461.327026
+YEAR RANGE: 2000 2000
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2001.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2001  59805.894531  26019.898438
+1     AUS    A02  2001   3111.533936    985.724976
+2     AUS    A03  2001   3124.552979   1758.145020
+YEAR RANGE: 2001 2001
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2002.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2002  46501.574219  20231.554688
+1     AUS    A02  2002   2419.346924    766.442017
+2     AUS    A03  2002   2429.469971   1367.031006
+YEAR RANGE: 2002 2002
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2003.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2003  53521.777344  23285.851562
+1     AUS    A02  2003   2784.589111    882.148987
+2     AUS    A03  2003   2796.239990   1573.406982
+YEAR RANGE: 2003 2003
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2004.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2004  53824.406250  23417.517578
+1     AUS    A02  2004   2800.333984    887.137024
+2     AUS    A03  2004   2812.051025   1582.303955
+YEAR RANGE: 2004 2004
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2005.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2005  55001.425781  23929.605469
+1     AUS    A02  2005   2861.571045    906.536987
+2     AUS    A03  2005   2873.543945   1616.905029
+YEAR RANGE: 2005 2005
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2006.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2006  48356.125000  21038.417969
+1     AUS    A02  2006   2515.833984    797.008972
+2     AUS    A03  2006   2526.361084   1421.550049
+YEAR RANGE: 2006 2006
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2007.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2007       55125.0  23983.369141
+1     AUS    A02  2007        2868.0    908.573975
+2     AUS    A03  2007        2880.0   1620.537964
+YEAR RANGE: 2007 2007
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2008.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2008  58551.843750  25793.496094
+1     AUS    A02  2008   2874.694092    991.841980
+2     AUS    A03  2008   2942.486084   1645.212036
+YEAR RANGE: 2008 2008
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2009.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2009  57805.949219  25788.046875
+1     AUS    A02  2009   2657.358887   1006.544006
+2     AUS    A03  2009   2794.647949   1552.718018
+YEAR RANGE: 2009 2009
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2010.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2010  64858.859375  29306.326172
+1     AUS    A02  2010   2765.462891   1161.068970
+2     AUS    A03  2010   3016.875000   1665.706055
+YEAR RANGE: 2010 2010
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2011.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2011  67395.812500  30849.130859
+1     AUS    A02  2011   2634.437988   1240.572021
+2     AUS    A03  2011   3016.540039   1655.168945
+YEAR RANGE: 2011 2011
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2012.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2012       69043.0  32019.992188
+1     AUS    A02  2012        2438.0   1307.020020
+2     AUS    A03  2012        2974.0   1621.748047
+YEAR RANGE: 2012 2012
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2013.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output  value_added
+0     AUS    A01  2013       73789.0      32006.0
+1     AUS    A02  2013        2714.0       1648.0
+2     AUS    A03  2013        3333.0       1989.0
+YEAR RANGE: 2013 2013
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+--------------------------------------------------
+FILE: socioeconomic_2014.parquet
+SIZE_MB: 0.03
+ROWS: 2408
+COLS: 5
+DTYPES:
+country         category
+sector          category
+year               int16
+gross_output     float32
+value_added      float32
+dtype: object
+COLUMNS:
+['country', 'sector', 'year', 'gross_output', 'value_added']
+HEAD:
+  country sector  year  gross_output   value_added
+0     AUS    A01  2014  77869.085938  33775.738281
+1     AUS    A02  2014   2864.068115   1739.124023
+2     AUS    A03  2014   3517.294922   2098.979980
+YEAR RANGE: 2014 2014
+country_UNIQUE: 43
+sector_UNIQUE: 56
+
+
+================================================================================
+DIRECTORY: data/processed/tariff_rates
+================================================================================
+FILE COUNT: 1
+
+--------------------------------------------------
+FILE: sector_tariffs.parquet
+SIZE_MB: 0.01
+ROWS: 12320
+COLS: 5
+DTYPES:
+year              int16
+country        category
+sector         category
+tariff_rate     float32
+data_source    category
+dtype: object
+COLUMNS:
+['year', 'country', 'sector', 'tariff_rate', 'data_source']
+HEAD:
+   year country sector  tariff_rate data_source
+0  2017     AUS    A01     0.002432    observed
+1  2017     AUS    A02     0.000259    observed
+2  2017     AUS    A03     0.000769    observed
+YEAR RANGE: 2017 2021
+country_UNIQUE: 44
+sector_UNIQUE: 56
+
+
+================================================================================
+DIRECTORY: data/processed/shock_vectors
+================================================================================
+FILE COUNT: 6
+
+--------------------------------------------------
+FILE: shock_eu_retaliation_2018.parquet
+SIZE_MB: 0.0
+ROWS: 378
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+            event_name src_country  ... delta_tariff is_direct_hit
+0  eu_retaliation_2018         USA  ...       0.2500          True
+1  eu_retaliation_2018         USA  ...       0.2500          True
+2  eu_retaliation_2018         USA  ...       0.1375          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 1
+tgt_country_UNIQUE: 27
+sector_UNIQUE: 14
+
+--------------------------------------------------
+FILE: shock_uk_global_tariff_2021.parquet
+SIZE_MB: 0.01
+ROWS: 1320
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+              event_name src_country  ... delta_tariff is_direct_hit
+0  uk_global_tariff_2021         AUS  ...    -0.015176          True
+1  uk_global_tariff_2021         AUS  ...    -0.009332          True
+2  uk_global_tariff_2021         AUS  ...    -0.030171          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 1
+sector_UNIQUE: 30
+
+--------------------------------------------------
+FILE: shock_us_232_aluminum_2018.parquet
+SIZE_MB: 0.0
+ROWS: 88
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+             event_name src_country  ... delta_tariff is_direct_hit
+0  us_232_aluminum_2018         AUS  ...          0.1          True
+1  us_232_aluminum_2018         AUS  ...          0.1          True
+2  us_232_aluminum_2018         AUT  ...          0.1          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 1
+sector_UNIQUE: 2
+
+--------------------------------------------------
+FILE: shock_us_232_steel_2018.parquet
+SIZE_MB: 0.0
+ROWS: 44
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+          event_name src_country  ... delta_tariff is_direct_hit
+0  us_232_steel_2018         AUS  ...         0.25          True
+1  us_232_steel_2018         AUT  ...         0.25          True
+2  us_232_steel_2018         BEL  ...         0.25          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 44
+tgt_country_UNIQUE: 1
+sector_UNIQUE: 1
+
+--------------------------------------------------
+FILE: shock_us_301_list1_2018.parquet
+SIZE_MB: 0.0
+ROWS: 10
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+          event_name src_country  ... delta_tariff is_direct_hit
+0  us_301_list1_2018         CHN  ...         0.25          True
+1  us_301_list1_2018         CHN  ...         0.25          True
+2  us_301_list1_2018         CHN  ...         0.25          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 1
+tgt_country_UNIQUE: 1
+sector_UNIQUE: 10
+
+--------------------------------------------------
+FILE: shock_us_301_list2_2018.parquet
+SIZE_MB: 0.0
+ROWS: 10
+COLS: 6
+DTYPES:
+event_name         object
+src_country      category
+tgt_country      category
+sector           category
+delta_tariff      float32
+is_direct_hit        bool
+dtype: object
+COLUMNS:
+['event_name', 'src_country', 'tgt_country', 'sector', 'delta_tariff', 'is_direct_hit']
+HEAD:
+          event_name src_country  ... delta_tariff is_direct_hit
+0  us_301_list2_2018         CHN  ...         0.25          True
+1  us_301_list2_2018         CHN  ...         0.25          True
+2  us_301_list2_2018         CHN  ...         0.25          True
+
+[3 rows x 6 columns]
+src_country_UNIQUE: 1
+tgt_country_UNIQUE: 1
+sector_UNIQUE: 10
+
+
+================================================================================
+DIRECTORY: data/processed/concordance
+================================================================================
+FILE COUNT: 5
+
+--------------------------------------------------
+FILE: cpc21_to_isic4.json
+SIZE_MB: 0.07
+TYPE: dict
+TOP LEVEL KEYS: 2446
+SAMPLE KEYS: ['01111', '01112', '01121', '01122', '01141']
+SAMPLE VALUE: ['0111']
+
+--------------------------------------------------
+FILE: hs6_to_cpc21.json
+SIZE_MB: 0.16
+TYPE: dict
+TOP LEVEL KEYS: 5387
+SAMPLE KEYS: ['010121', '010129', '010130', '010190', '010221']
+SAMPLE VALUE: ['02131']
+
+--------------------------------------------------
+FILE: hs6_to_wiod56_weights.json
+SIZE_MB: 0.19
+TYPE: dict
+TOP LEVEL KEYS: 5283
+SAMPLE KEYS: ['010121', '010129', '010130', '010190', '010221']
+SAMPLE VALUE: {'A01': 1.0}
+
+--------------------------------------------------
+FILE: isic4_to_wiod56.json
+SIZE_MB: 0.14
+TYPE: dict
+TOP LEVEL KEYS: 8700
+SAMPLE KEYS: ['1000', '1001', '1002', '1003', '1004']
+SAMPLE VALUE: C10_C12
+
+--------------------------------------------------
+FILE: naics3_to_wiod56.json
+SIZE_MB: 0.0
+TYPE: dict
+TOP LEVEL KEYS: 99
+SAMPLE KEYS: ['111', '112', '113', '114', '115']
+SAMPLE VALUE: A01
+
+
+================================================================================
+DIRECTORY: data/processed/socioeconomic
+================================================================================
+MISSING DIRECTORY
+
+
+================================================================================
+DIRECTORY: data/processed/backward_linkage
+================================================================================
+MISSING DIRECTORY
+
+
+================================================================================
+DIRECTORY: data/processed/leontief
+================================================================================
+FILE COUNT: 30
+
+--------------------------------------------------
+FILE: backward_linkage_2000.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 8.214935
+
+--------------------------------------------------
+FILE: backward_linkage_2001.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 4.1114917
+
+--------------------------------------------------
+FILE: backward_linkage_2002.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 5.1816626
+
+--------------------------------------------------
+FILE: backward_linkage_2003.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 5.7287617
+
+--------------------------------------------------
+FILE: backward_linkage_2004.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 8.55761
+
+--------------------------------------------------
+FILE: backward_linkage_2005.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 6.206401
+
+--------------------------------------------------
+FILE: backward_linkage_2006.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 11.907783
+
+--------------------------------------------------
+FILE: backward_linkage_2007.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 27.964582
+
+--------------------------------------------------
+FILE: backward_linkage_2008.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 12.430173
+
+--------------------------------------------------
+FILE: backward_linkage_2009.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 6.5223618
+
+--------------------------------------------------
+FILE: backward_linkage_2010.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 5.546401
+
+--------------------------------------------------
+FILE: backward_linkage_2011.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 6.4983087
+
+--------------------------------------------------
+FILE: backward_linkage_2012.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 12.686877
+
+--------------------------------------------------
+FILE: backward_linkage_2013.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 10.24646
+
+--------------------------------------------------
+FILE: backward_linkage_2014.npy
+SIZE_MB: 0.01
+SHAPE: (2464,)
+DTYPE: float32
+MIN: 0.9999
+MAX: 7.8229895
+
+--------------------------------------------------
+FILE: leontief_2000.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 3.7158675
+
+--------------------------------------------------
+FILE: leontief_2001.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 1.9556341
+
+--------------------------------------------------
+FILE: leontief_2002.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.1341424
+
+--------------------------------------------------
+FILE: leontief_2003.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.2021084
+
+--------------------------------------------------
+FILE: leontief_2004.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.8774102
+
+--------------------------------------------------
+FILE: leontief_2005.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.3341777
+
+--------------------------------------------------
+FILE: leontief_2006.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 4.118027
+
+--------------------------------------------------
+FILE: leontief_2007.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 8.381835
+
+--------------------------------------------------
+FILE: leontief_2008.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 4.871461
+
+--------------------------------------------------
+FILE: leontief_2009.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 3.7232833
+
+--------------------------------------------------
+FILE: leontief_2010.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.714282
+
+--------------------------------------------------
+FILE: leontief_2011.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.951934
+
+--------------------------------------------------
+FILE: leontief_2012.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.7455215
+
+--------------------------------------------------
+FILE: leontief_2013.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.9207084
+
+--------------------------------------------------
+FILE: leontief_2014.npy
+SIZE_MB: 23.16
+SHAPE: (2464, 2464)
+DTYPE: float32
+MIN: 0.0
+MAX: 2.8599787
+
+
+================================================================================
+DIRECTORY: data/processed/node_features
+================================================================================
+FILE COUNT: 0
+
+
+================================================================================
+DIRECTORY: data/processed/labels
+================================================================================
+FILE COUNT: 0
+
+
+================================================================================
+SPECIAL PHASE 4 CHECKS
+================================================================================
+
+ data/processed/tariff_rates/sector_tariffs.parquet
+FOUND
+
+ data/processed/shock_vectors/shock_us_232_steel_2018.parquet
+FOUND
+
+ data/processed/edges/edges_2014.parquet
+FOUND
+
+ data/processed/edges/edges_2021.parquet
+FOUND
+
+AUDIT COMPLETE
