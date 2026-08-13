@@ -15,6 +15,7 @@ PATHS = {
     "RAW_COMMODITY": "data/raw/commodity_prices",
     "RAW_TARIFF_EVENTS": "data/raw/tariff_events",
     "RAW_CONCORDANCE": "data/raw/concordance",
+    "RAW_WB_GDP": "data/raw/wb_gdp",
     "PROCESSED_EDGES": "data/processed/edges",
     "PROCESSED_NODE_FEATURES": "data/processed/node_features",
     "PROCESSED_TARIFF_RATES": "data/processed/tariff_rates",
@@ -31,21 +32,24 @@ PATHS = {
 
 # GRAPH parameters
 GRAPH = {
-    "N_COUNTRIES": 44,
+    "N_COUNTRIES": 43,
     "N_SECTORS": 56,
-    "N_NODES": 2464,   # 44 × 56
+    "N_NODES": 2408,   # 43 × 56 — ROW dropped, see PROJECT_STATE.md §2 decision 1
     "EDGE_THRESHOLD": 0.001,   # import_pen_coeff must be >= this to keep edge
     "SEQ_LEN": 8,   # quarters in temporal sequence
     "WIOD_YEARS": list(range(2000, 2015)),
     "COMTRADE_YEARS": [2015, 2016, 2017, 2018, 2019, 2020, 2021],
     "WIOD_MATRIX_ROW_OFFSET": 6,   # SET MANUALLY after opening WIOD Excel
     "WIOD_MATRIX_COL_OFFSET": 4,   # SET MANUALLY after opening WIOD Excel
+    # ROW ("Rest of World") intentionally excluded — WIOD socioeconomic accounts
+    # have no ROW row, so node features can never be genuinely populated for it.
+    # See PROJECT_STATE.md §1.2 finding #12 and §2 decision 1.
     "COUNTRY_LIST": [
         "AUS", "AUT", "BEL", "BGR", "BRA", "CAN", "CHN", "CYP", "CZE", "DEU",
         "DNK", "ESP", "EST", "FIN", "FRA", "GBR", "GRC", "HUN", "IDN", "IND",
         "IRL", "ITA", "JPN", "KOR", "LTU", "LUX", "LVA", "MEX", "MLT", "NLD",
         "NOR", "POL", "PRT", "ROU", "RUS", "SVK", "SVN", "SWE", "TUR", "TWN",
-        "USA", "ROW", "HRV", "CHE"
+        "USA", "HRV", "CHE"
     ],
     "SECTOR_LIST": [
         "A01", "A02", "A03", "B", "C10_C12", "C13_C15", "C16", "C17", "C18",

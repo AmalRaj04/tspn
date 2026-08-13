@@ -303,11 +303,12 @@ def validate(df: pd.DataFrame, year: int) -> None:
     assert float(df["import_pen_coeff"].min()) >= 0, (
         f"[{year}] Negative import_pen_coeff"
     )
-    assert df["src_id"].between(0, 2463).all(), (
-        f"[{year}] src_id out of [0, 2463]"
+    max_id = config.GRAPH["N_NODES"] - 1
+    assert df["src_id"].between(0, max_id).all(), (
+        f"[{year}] src_id out of [0, {max_id}]"
     )
-    assert df["tgt_id"].between(0, 2463).all(), (
-        f"[{year}] tgt_id out of [0, 2463]"
+    assert df["tgt_id"].between(0, max_id).all(), (
+        f"[{year}] tgt_id out of [0, {max_id}]"
     )
     assert not df.isna().any().any(), (
         f"[{year}] NaN values detected"
