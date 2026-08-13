@@ -143,7 +143,12 @@ TRAINING = {
 # LEONTIEF parameters
 LEONTIEF = {
     "REG_EPS": 1e-4,
-    "PASS_THROUGH_RATE": None,  # SET AFTER CALIBRATION in Phase 6
+    # Calibrated on uk_global_tariff_2021 (6m horizon, closed-form OLS), per
+    # src/baselines/leontief_io.py. Negative and driven mostly by indirect/
+    # cross-border correlation rather than a genuine pass-through relationship
+    # -- see PROJECT_STATE.md §1.4 finding #27 for why (GBR, the UK event's
+    # sole direct-hit country, has zero PPI label coverage).
+    "PASS_THROUGH_RATE": -5.41858216,
 }
 
 # EVENTS parameters
