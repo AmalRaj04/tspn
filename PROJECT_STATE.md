@@ -80,7 +80,7 @@ Countries: 43 (ROW excluded). Sectors: 56 (underscore form). Nodes: 2,408. `node
 | Edge features | `data/processed/edge_features/edge_features_{event}_q{0-7}.parquet` | per event | ~132K/quarter | e3 nonzero only at q7 (CP21 verified); e2/e3 joined on src_sector not tgt_sector (finding #25); e4 is an HS2-level, non-bilateral approximation (finding #26) |
 | Node features (quarterly) | `data/processed/node_features_quarterly/{event}.parquet` | per event | 2,408 x 8 | linear interpolation between adjacent annual node_features (see `quarterly_interpolation.py`) |
 | Labels | `data/processed/labels/labels_{event}.parquet` | per event | 2,408 | 3m/6m/12m via compounding quarterly PPI changes, `has_label` requires all 4 forward quarters found (CP24). Measured coverage: 27.9% for all 6 events (see decision 3) |
-| PyG datasets | `data/pyg_datasets/{event}.pt` | per event | — | Not yet built (Phase 5) |
+| PyG datasets | `data/pyg_datasets/{event}.pt` | per event | 8 x 2,408-node snapshots | `TSPNEventGraph` (src/data/tspn_event_graph.py); load with `torch.load(path, weights_only=False)`. Fixed 157,838-edge canonical index from edges_2014 shared across every snapshot/event (CP22) |
 
 ---
 
@@ -88,10 +88,15 @@ Countries: 43 (ROW excluded). Sectors: 56 (underscore form). Nodes: 2,408. `node
 
 - **Phase 0–3**: Complete.
 - **Phase 4 (Feature Engineering)**: **Complete** as of 2026-08-13. All findings in §1.2 and §1.3 fixed and verified (`scripts/verify_phase4_fix.py`, 9/9 checks pass). Node features, edge features, quarterly snapshots, and labels exist for all 6 events; `PROJECT_STATE.md` and `audit_report.txt` are current.
-- **Phase 5 (PyG Graph Dataset Construction)**: Not started — the immediate next phase. Needs `src/data/build_pyg_dataset.py`: assemble each event's 8 quarterly snapshots (node_features_quarterly + edge_features) into PyG `Data` objects with a fixed, shared edge_index (CP22), `copy.deepcopy()` per snapshot (CP23), and `direct_hit_mask`/`label_mask`. See the approved plan for the full Phase 5–13 outline.
-- **Phase 6 (Baselines) through Phase 13 (Maintenance)**: Not started.
+- **Phase 5 (PyG Graph Dataset Construction)**: **Complete** as of 2026-08-13. `data/pyg_datasets/{event}.pt` exists for all 6 events (~32MB each, 192MB total — within the spec's 200-400MB expectation), verified independently after reload (`scripts/verify_phase5_pyg_datasets.py`, 9/9 checks pass): CP21 (shock isolated to snapshot 7), CP22 (one fixed edge_index — 157,838 edges from `edges_2014.parquet` — shared across all 8 snapshots of all 6 events), CP23 (no Python object aliasing across snapshots), CP24 (no NaN in labeled y). direct_hit_mask ranges 33–524 nodes per event (eu_retaliation is the largest, consistent with its broader country/product scope — not a bug). Label coverage carries over the 27.9% figure from Phase 4 (decision 3).
+- **Phase 6 (Baseline Models) through Phase 13 (Maintenance)**: Not started. Immediate next step is `src/baselines/leontief_io.py` (calibrate `LEONTIEF_PASS_THROUGH_RATE` on the UK Global Tariff 2021 event, CP26), `panel_var.py`, `mlp_no_graph.py` (excludes f3, CP31). See the approved plan for the full Phase 6–13 outline.
 
-### Phase 4-fix deliverables (this session)
+### Phase 5 deliverables (this session)
+- `src/data/tspn_event_graph.py` — `TSPNEventGraph` container class (stable module path for `torch.load`)
+- `src/data/build_pyg_dataset.py` — assembles the 6 `.pt` files
+- `scripts/verify_phase5_pyg_datasets.py` — independent reload-and-verify gate
+
+### Phase 4-fix deliverables
 - `PROJECT_STATE.md` (this file)
 - `scripts/migrate_drop_row.py` — one-time ROW-removal migration (edges, tariff_rates, shock_vectors)
 - `src/data/download_wb_gdp.py` — World Bank GDP fetch for the 2015–2021 gross_output proxy

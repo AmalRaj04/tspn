@@ -4,6 +4,7 @@ __pycache__/
 
 data/raw/
 data/processed/
+data/pyg_datasets/
 
 models/checkpoints/
 models/onnx/
