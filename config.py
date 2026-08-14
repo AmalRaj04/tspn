@@ -126,6 +126,12 @@ TRAINING = {
     "T_0": 50,
     "T_mult": 2,
     "grad_clip_norm": 1.0,
+    # CP38 (Risk Checkpoints): GRU gradients are large early in training;
+    # clipping at max_norm=1.0 from epoch 0 can suppress learning entirely
+    # for the first ~20-30 epochs. Warm up at a looser 5.0 for the first
+    # 30 epochs, then tighten to the locked 1.0.
+    "grad_clip_warmup_norm": 5.0,
+    "grad_clip_warmup_epochs": 30,
     "max_epochs": 200,
     "early_stop_patience": 20,
     "early_stop_metric": "val_rmse_6m",
