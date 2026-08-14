@@ -73,11 +73,21 @@ RESULTS_TABLES = os.path.join(PROJECT_ROOT, "results", "tables")
 
 
 class RunLogger:
-    """Always logs to a local list (-> CSV). Opportunistically also logs to
-    wandb if requested and available; never lets wandb break training."""
+    """Logs to a CSV that is rewritten (small file, cheap) after EVERY epoch,
+    not just once at the end of a fold -- a fold killed mid-training (as
+    actually happened once already, see PROJECT_STATE.md finding #33) must
+    not lose its loss-curve history for the epochs it did complete, the same
+    resume-safety principle already applied to the resume-state JSON and
+    checkpoint files. Opportunistically also logs to wandb if requested and
+    available; never lets wandb break training."""
 
-    def __init__(self, use_wandb: bool, project: str, run_name: str):
+    def __init__(self, use_wandb: bool, project: str, run_name: str, csv_path: str):
+        self.csv_path = csv_path
         self.rows: list[dict] = []
+        if os.path.exists(csv_path):
+            self._existing_rows = pd.read_csv(csv_path).to_dict("records")
+        else:
+            self._existing_rows = []
         self.wandb = None
         if use_wandb:
             try:
@@ -90,25 +100,15 @@ class RunLogger:
 
     def log(self, row: dict) -> None:
         self.rows.append(row)
+        os.makedirs(os.path.dirname(self.csv_path), exist_ok=True)
+        combined = pd.DataFrame(self._existing_rows + self.rows)
+        combined = combined.drop_duplicates(subset="epoch", keep="last").sort_values("epoch")
+        combined.to_csv(self.csv_path, index=False)
         if self.wandb is not None:
             try:
                 self.wandb.log(row)
             except Exception:
                 pass
-
-    def save_csv(self, path: str) -> None:
-        """Merge with any existing log at `path` (resume-safe: a resumed run's
-        new rows are appended to, not overwriting, the prior partial run's log),
-        deduplicated on epoch."""
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        new_df = pd.DataFrame(self.rows)
-        if os.path.exists(path):
-            old_df = pd.read_csv(path)
-            combined = pd.concat([old_df, new_df], ignore_index=True)
-            combined = combined.drop_duplicates(subset="epoch", keep="last").sort_values("epoch")
-            combined.to_csv(path, index=False)
-        else:
-            new_df.to_csv(path, index=False)
 
     def finish(self) -> None:
         if self.wandb is not None:
@@ -210,7 +210,8 @@ def train_one_fold(
                   f"(best_val_rmse={best_val_rmse:.4f}, patience={patience_counter}/{T['early_stop_patience']}, "
                   f"fresh optimizer/scheduler per §9.2)")
 
-    logger = RunLogger(use_wandb, project="tspn", run_name=f"fold{fold_idx}_{held_out_name}")
+    train_log_path = os.path.join(RESULTS_TABLES, f"train_log_fold{fold_idx}.csv")
+    logger = RunLogger(use_wandb, project="tspn", run_name=f"fold{fold_idx}_{held_out_name}", csv_path=train_log_path)
 
     for epoch in range(start_epoch, max_epochs):
         model.train()
@@ -284,7 +285,6 @@ def train_one_fold(
         if stopping:
             break
 
-    logger.save_csv(os.path.join(RESULTS_TABLES, f"train_log_fold{fold_idx}.csv"))
     logger.finish()
 
     # CP36: reload the BEST checkpoint (not the last-epoch model still in memory),
