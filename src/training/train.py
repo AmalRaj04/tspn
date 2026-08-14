@@ -69,6 +69,8 @@ T = config.TRAINING
 EVENT_NAMES = [e["name"] for e in config.EVENTS]
 PYG_DIR = os.path.join(PROJECT_ROOT, config.PATHS["PYG_DATASETS"])
 CKPT_DIR = os.path.join(PROJECT_ROOT, config.PATHS["MODEL_CHECKPOINTS"])
+
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 RESULTS_TABLES = os.path.join(PROJECT_ROOT, "results", "tables")
 
 
@@ -119,10 +121,20 @@ class RunLogger:
 
 
 def load_all_graphs() -> dict[str, TSPNEventGraph]:
+    """Loads each event's PyG dataset (saved as plain CPU tensors during
+    Phase 5) and moves everything onto DEVICE once, up front -- so every
+    downstream forward/backward pass runs on GPU when one is available
+    (e.g. Colab's T4) without needing per-call .to(DEVICE) calls scattered
+    through the training loop."""
     graphs = {}
     for name in EVENT_NAMES:
         path = os.path.join(PYG_DIR, f"{name}.pt")
-        graphs[name] = torch.load(path, weights_only=False)
+        g: TSPNEventGraph = torch.load(path, weights_only=False)
+        g.temporal_sequence = [d.to(DEVICE) for d in g.temporal_sequence]
+        g.y = g.y.to(DEVICE)
+        g.label_mask = g.label_mask.to(DEVICE)
+        g.direct_hit_mask = g.direct_hit_mask.to(DEVICE)
+        graphs[name] = g
     return graphs
 
 
@@ -169,7 +181,7 @@ def train_one_fold(
     torch.manual_seed(seed)
     random.seed(seed)
 
-    model = TSPN(config.MODEL)
+    model = TSPN(config.MODEL).to(DEVICE)
     optimizer = torch.optim.Adam(model.parameters(), lr=T["lr"], weight_decay=T["weight_decay"])
     scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=T["T_0"], T_mult=T["T_mult"])
 
@@ -201,7 +213,10 @@ def train_one_fold(
                   f"skipping training, evaluating existing checkpoint only.")
             start_epoch = max_epochs   # skip the training loop entirely
         elif os.path.exists(ckpt_path):
-            ckpt = torch.load(ckpt_path, weights_only=False)
+            # map_location=DEVICE: a checkpoint saved on one device (e.g. CPU
+            # locally) must load cleanly on another (e.g. Colab's GPU) --
+            # portable checkpoints are the whole point of moving environments.
+            ckpt = torch.load(ckpt_path, map_location=DEVICE, weights_only=False)
             model.load_state_dict(ckpt["model_state"])
             best_val_rmse = state["best_val_rmse"]
             patience_counter = state["patience_counter"]
@@ -289,7 +304,7 @@ def train_one_fold(
 
     # CP36: reload the BEST checkpoint (not the last-epoch model still in memory),
     # print its metadata to confirm what's actually being evaluated.
-    ckpt = torch.load(ckpt_path, weights_only=False)
+    ckpt = torch.load(ckpt_path, map_location=DEVICE, weights_only=False)
     with open(resume_state_path) as f:
         total_epochs_run = json.load(f)["epoch"] + 1
     print(f"  Fold {fold_idx}: loading best checkpoint -- "
@@ -314,6 +329,7 @@ def main() -> None:
                          help="ignore any existing resume-state/checkpoint and retrain each fold from scratch")
     args = parser.parse_args()
 
+    print(f"Device: {DEVICE}" + (f" ({torch.cuda.get_device_name(0)})" if DEVICE.type == "cuda" else ""))
     print("Loading PyG event graphs...")
     graphs = load_all_graphs()
 

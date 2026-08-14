@@ -93,7 +93,10 @@ def augment_edge_dropout(data: Data, p: float | None = None, threshold: float | 
     out = copy.deepcopy(data)
     import_pen = out.edge_attr[:, 1]
     low_weight = import_pen < threshold
-    drop_roll = torch.rand(out.edge_attr.size(0)) < p
+    # device= matters: torch.rand() defaults to CPU regardless of the input's
+    # device, which would raise a device-mismatch error against `low_weight`
+    # (on GPU) once this runs on Colab -- caught before it could bite there.
+    drop_roll = torch.rand(out.edge_attr.size(0), device=out.edge_attr.device) < p
     drop_mask = low_weight & drop_roll
 
     keep = (~drop_mask).float().unsqueeze(-1)   # (E, 1)
