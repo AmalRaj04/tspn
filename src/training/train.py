@@ -35,6 +35,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import random
 import sys
@@ -96,8 +97,18 @@ class RunLogger:
                 pass
 
     def save_csv(self, path: str) -> None:
+        """Merge with any existing log at `path` (resume-safe: a resumed run's
+        new rows are appended to, not overwriting, the prior partial run's log),
+        deduplicated on epoch."""
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        pd.DataFrame(self.rows).to_csv(path, index=False)
+        new_df = pd.DataFrame(self.rows)
+        if os.path.exists(path):
+            old_df = pd.read_csv(path)
+            combined = pd.concat([old_df, new_df], ignore_index=True)
+            combined = combined.drop_duplicates(subset="epoch", keep="last").sort_values("epoch")
+            combined.to_csv(path, index=False)
+        else:
+            new_df.to_csv(path, index=False)
 
     def finish(self) -> None:
         if self.wandb is not None:
@@ -130,7 +141,19 @@ def train_one_fold(
     max_epochs: int | None = None,
     use_wandb: bool = False,
     seed: int = 0,
+    resume: bool = True,
 ) -> dict:
+    """Compute-management note (Locked Plan §9.2): a full 200-epoch x 6-fold run
+    on this CPU-only setup is a multi-day operation, so resuming after an
+    interruption matters in practice, not just in theory. Resume state is a
+    small JSON sidecar saved after every epoch (epoch, best_val_rmse,
+    patience_counter, done) -- separate from the (larger) best-model
+    checkpoint, which only saves on improvement. On resume: reload the best
+    model's WEIGHTS from the checkpoint, but always build a FRESH optimizer
+    and scheduler (per §9.2's own explicit guidance -- "do not try to reload
+    optimizer state"), and continue the epoch loop and early-stopping counters
+    from the sidecar. If a fold's sidecar says done=True, it's skipped
+    entirely and only re-evaluated -- safe to re-invoke this script freely."""
     held_out_name = EVENT_NAMES[fold_idx]
     train_names = [n for n in EVENT_NAMES if n != held_out_name]
 
@@ -150,17 +173,46 @@ def train_one_fold(
     optimizer = torch.optim.Adam(model.parameters(), lr=T["lr"], weight_decay=T["weight_decay"])
     scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=T["T_0"], T_mult=T["T_mult"])
 
-    logger = RunLogger(use_wandb, project="tspn", run_name=f"fold{fold_idx}_{held_out_name}")
-
     os.makedirs(CKPT_DIR, exist_ok=True)
     os.makedirs(RESULTS_TABLES, exist_ok=True)
     ckpt_path = os.path.join(CKPT_DIR, f"tspn_fold{fold_idx}_best.pt")
+    resume_state_path = os.path.join(CKPT_DIR, f"tspn_fold{fold_idx}_resume_state.json")
 
     best_val_rmse = float("inf")
     patience_counter = 0
-    last_epoch = 0
+    start_epoch = 0
 
-    for epoch in range(max_epochs):
+    if resume and os.path.exists(resume_state_path):
+        with open(resume_state_path) as f:
+            state = json.load(f)
+        # "Done" is evaluated fresh against the CURRENT call's max_epochs, not
+        # a boolean frozen at save time -- early stopping means genuinely done
+        # regardless of max_epochs, but merely having reached a PRIOR run's
+        # (possibly smaller) max_epochs must not block a later run that asks
+        # for more epochs. (Caught by testing: an earlier version stored a
+        # single frozen `done` flag and incorrectly refused to resume past a
+        # prior smoke test's smaller epoch cap.)
+        already_early_stopped = state.get("early_stopped", False)
+        budget_exhausted = (state["epoch"] + 1) >= max_epochs
+        if already_early_stopped or budget_exhausted:
+            reason = "early-stopped" if already_early_stopped else f"reached max_epochs={max_epochs}"
+            print(f"  Fold {fold_idx}: resume state says already done ({reason} at "
+                  f"epoch {state['epoch']}, val_rmse_6m={state['best_val_rmse']:.4f}) -- "
+                  f"skipping training, evaluating existing checkpoint only.")
+            start_epoch = max_epochs   # skip the training loop entirely
+        elif os.path.exists(ckpt_path):
+            ckpt = torch.load(ckpt_path, weights_only=False)
+            model.load_state_dict(ckpt["model_state"])
+            best_val_rmse = state["best_val_rmse"]
+            patience_counter = state["patience_counter"]
+            start_epoch = state["epoch"] + 1
+            print(f"  Fold {fold_idx}: RESUMING from epoch {start_epoch} "
+                  f"(best_val_rmse={best_val_rmse:.4f}, patience={patience_counter}/{T['early_stop_patience']}, "
+                  f"fresh optimizer/scheduler per §9.2)")
+
+    logger = RunLogger(use_wandb, project="tspn", run_name=f"fold{fold_idx}_{held_out_name}")
+
+    for epoch in range(start_epoch, max_epochs):
         model.train()
         random.shuffle(train_names)
         epoch_loss = 0.0
@@ -192,7 +244,6 @@ def train_one_fold(
         scheduler.step(epoch)
 
         val_rmse_6m, _, val_alpha = validate(model, held_out)
-        last_epoch = epoch
 
         logger.log({
             "epoch": epoch,
@@ -202,6 +253,7 @@ def train_one_fold(
             "grad_clip_norm": clip_norm,
         })
 
+        stopping = False
         if val_rmse_6m < best_val_rmse:
             best_val_rmse = val_rmse_6m
             patience_counter = 0
@@ -216,7 +268,21 @@ def train_one_fold(
         else:
             patience_counter += 1
             if patience_counter >= T["early_stop_patience"]:
-                break
+                stopping = True
+
+        # Resume-state sidecar, updated every epoch (§9.2) -- cheap relative to
+        # an epoch's training cost, and is what makes a mid-run interruption
+        # recoverable without losing the epoch/patience bookkeeping.
+        with open(resume_state_path, "w") as f:
+            json.dump({
+                "epoch": epoch,
+                "best_val_rmse": best_val_rmse,
+                "patience_counter": patience_counter,
+                "early_stopped": stopping,
+            }, f)
+
+        if stopping:
+            break
 
     logger.save_csv(os.path.join(RESULTS_TABLES, f"train_log_fold{fold_idx}.csv"))
     logger.finish()
@@ -224,9 +290,11 @@ def train_one_fold(
     # CP36: reload the BEST checkpoint (not the last-epoch model still in memory),
     # print its metadata to confirm what's actually being evaluated.
     ckpt = torch.load(ckpt_path, weights_only=False)
+    with open(resume_state_path) as f:
+        total_epochs_run = json.load(f)["epoch"] + 1
     print(f"  Fold {fold_idx}: loading best checkpoint -- "
           f"epoch {ckpt['epoch']}, val_rmse_6m={ckpt['val_rmse_6m']:.4f} "
-          f"(trained {last_epoch + 1} epochs total)")
+          f"(trained {total_epochs_run} epochs total, across resumes if any)")
     model.load_state_dict(ckpt["model_state"])
     model.eval()
     with torch.no_grad():
@@ -242,6 +310,8 @@ def main() -> None:
     parser.add_argument("--folds", type=int, nargs="*", default=None, help="specific fold indices to run (default: all 6)")
     parser.add_argument("--use_wandb", action="store_true", help="attempt wandb logging (best-effort)")
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--no_resume", action="store_true",
+                         help="ignore any existing resume-state/checkpoint and retrain each fold from scratch")
     args = parser.parse_args()
 
     print("Loading PyG event graphs...")
@@ -252,7 +322,8 @@ def main() -> None:
         held_out_name = EVENT_NAMES[fold_idx]
         print(f"\n{'='*60}\nFold {fold_idx}: held out = {held_out_name}\n{'='*60}")
         metrics = train_one_fold(
-            fold_idx, graphs, max_epochs=args.max_epochs, use_wandb=args.use_wandb, seed=args.seed
+            fold_idx, graphs, max_epochs=args.max_epochs, use_wandb=args.use_wandb,
+            seed=args.seed, resume=not args.no_resume,
         )
         for k, v in metrics.items():
             print(f"    {k}: {v:.4f}")
