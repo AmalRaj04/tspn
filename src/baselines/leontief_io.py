@@ -76,9 +76,15 @@ def load_event_graphs() -> dict[str, TSPNEventGraph]:
 
 
 def compute_node_delta_tau(snapshot_q7) -> np.ndarray:
-    """node_delta_tau[i] = sum over incoming edges (j->i) of e1 * e3."""
-    edge_index = snapshot_q7.edge_index.numpy()   # (2, E): [0]=src, [1]=tgt
-    edge_attr = snapshot_q7.edge_attr.numpy()      # (E, 6)
+    """node_delta_tau[i] = sum over incoming edges (j->i) of e1 * e3.
+
+    .detach().cpu() before .numpy(): this function is reused by
+    src/training/ablation_data.py for the no-shock ablation, which may run
+    on CUDA tensors (Colab) -- a plain .numpy() call would raise on a GPU
+    tensor. Harmless no-op when already on CPU (Leontief baseline's own
+    use of this function)."""
+    edge_index = snapshot_q7.edge_index.detach().cpu().numpy()   # (2, E): [0]=src, [1]=tgt
+    edge_attr = snapshot_q7.edge_attr.detach().cpu().numpy()      # (E, 6)
     contrib = edge_attr[:, 1] * edge_attr[:, 3]    # import_pen_coeff * tariff_delta
     tgt = edge_index[1]
     tau = np.zeros(N_NODES, dtype=np.float64)
