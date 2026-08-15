@@ -71,6 +71,16 @@ PYG_DIR = os.path.join(PROJECT_ROOT, config.PATHS["PYG_DATASETS"])
 CKPT_DIR = os.path.join(PROJECT_ROOT, config.PATHS["MODEL_CHECKPOINTS"])
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def _safe_makedirs(path: str) -> None:
+    """os.makedirs(path, exist_ok=True) that also tolerates FileExistsError --
+    exist_ok=True alone isn't sufficient when path is a symlink into Colab's
+    Drive FUSE mount (hit for real mid-run, see RunLogger.log())."""
+    try:
+        os.makedirs(path, exist_ok=True)
+    except FileExistsError:
+        pass
 RESULTS_TABLES = os.path.join(PROJECT_ROOT, "results", "tables")
 
 
@@ -102,7 +112,7 @@ class RunLogger:
 
     def log(self, row: dict) -> None:
         self.rows.append(row)
-        os.makedirs(os.path.dirname(self.csv_path), exist_ok=True)
+        _safe_makedirs(os.path.dirname(self.csv_path))
         combined = pd.DataFrame(self._existing_rows + self.rows)
         combined = combined.drop_duplicates(subset="epoch", keep="last").sort_values("epoch")
         combined.to_csv(self.csv_path, index=False)
@@ -185,8 +195,8 @@ def train_one_fold(
     optimizer = torch.optim.Adam(model.parameters(), lr=T["lr"], weight_decay=T["weight_decay"])
     scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=T["T_0"], T_mult=T["T_mult"])
 
-    os.makedirs(CKPT_DIR, exist_ok=True)
-    os.makedirs(RESULTS_TABLES, exist_ok=True)
+    _safe_makedirs(CKPT_DIR)
+    _safe_makedirs(RESULTS_TABLES)
     ckpt_path = os.path.join(CKPT_DIR, f"tspn_fold{fold_idx}_best.pt")
     resume_state_path = os.path.join(CKPT_DIR, f"tspn_fold{fold_idx}_resume_state.json")
 

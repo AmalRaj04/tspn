@@ -72,6 +72,17 @@ RESULTS_TABLES = os.path.join(PROJECT_ROOT, "results", "tables")
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
+def _safe_makedirs(path: str) -> None:
+    """See the identical helper + comment in train.py -- os.makedirs(...,
+    exist_ok=True) alone is not sufficient when path is a symlink into
+    Colab's Drive FUSE mount; this crashed a real run at fold 3 of 6."""
+    try:
+        os.makedirs(path, exist_ok=True)
+    except FileExistsError:
+        pass
+
+
 # Locked Plan §9.1 items 4-7. Each entry: (model constructor, data transform
 # or None). model_ctor takes no arguments -- config.MODEL is closed over --
 # so calling it always returns a brand-new, randomly-initialized instance (CP37).
@@ -128,7 +139,7 @@ class RunLogger:
 
     def log(self, row: dict) -> None:
         self.rows.append(row)
-        os.makedirs(os.path.dirname(self.csv_path), exist_ok=True)
+        _safe_makedirs(os.path.dirname(self.csv_path))
         combined = pd.DataFrame(self._existing_rows + self.rows)
         combined = combined.drop_duplicates(subset="epoch", keep="last").sort_values("epoch")
         combined.to_csv(self.csv_path, index=False)
@@ -185,8 +196,8 @@ def train_one_ablation_fold(
     optimizer = torch.optim.Adam(model.parameters(), lr=T["lr"], weight_decay=T["weight_decay"])
     scheduler = CosineAnnealingWarmRestarts(optimizer, T_0=T["T_0"], T_mult=T["T_mult"])
 
-    os.makedirs(CKPT_DIR, exist_ok=True)
-    os.makedirs(RESULTS_TABLES, exist_ok=True)
+    _safe_makedirs(CKPT_DIR)
+    _safe_makedirs(RESULTS_TABLES)
     ckpt_path = os.path.join(CKPT_DIR, f"{ablation_name}_fold{fold_idx}_best.pt")
     resume_state_path = os.path.join(CKPT_DIR, f"{ablation_name}_fold{fold_idx}_resume_state.json")
 
