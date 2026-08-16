@@ -17,6 +17,13 @@ models/onnx/
 results/tables/attention*fold*.npy
 results/tables/train_log*fold*.csv
 
+# Phase 10 analysis intermediates (predictions + per-layer attention per
+# event, ~44MB total) -- regenerable from the checkpoints via
+# src/analysis/collect_model_outputs.py. The curated summary CSVs it feeds
+# (interpretability_attention_leontief_correlation.csv, cascade_depth.csv,
+# amplifier_sectors.csv) ARE tracked, same as baselines.csv/all_results.csv.
+results/analysis/
+
 wandb/
 
 .ipynb_checkpoints/
