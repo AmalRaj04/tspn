@@ -1,8 +1,8 @@
 # TSPN — Project State & Deviation Log
 
-**This document is the source of truth whenever it conflicts with the original planning docs** (`TSPN_Implementation_Masterplan.md`, `TSPN_Locked_Implementation_Plan.md`, `TSPN_Risk_Checkpoints.md`, `TSPN_Complete_Implementation_Guide.md`, `TSPN_Research_Brief.md` — kept outside the repo). Those documents describe the *intended* design; real-world data availability forced deviations during implementation. This file tracks every deviation, why it happened, and the current, authoritative state of the pipeline. Update it whenever a design decision changes.
+**This document is the source of truth whenever it conflicts with the original planning docs**, now version-controlled at [`docs/planning/`](docs/planning/) — `TSPN_Implementation_Masterplan.md`, `TSPN_Locked_Implementation_Plan.md`, `TSPN_Risk_Checkpoints.md`, `TSPN_Complete_Implementation_Guide.md`, `TSPN_Research_Brief.md`, and the approved phase-by-phase plan `TSPN_Approved_Phase4-13_Plan.md` (previously local-only, outside git — copied in on 2026-08-17 so the project no longer depends on files that could disappear outside version control). Those documents describe the *intended* design; real-world data availability forced deviations during implementation. This file tracks every deviation, why it happened, and the current, authoritative state of the pipeline. Update it whenever a design decision changes. See `docs/planning/README.md` for how to read these together.
 
-Last reconciled: 2026-08-13.
+Last reconciled: 2026-08-17.
 
 ---
 
